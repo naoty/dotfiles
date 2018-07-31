@@ -1,0 +1,2 @@
+set main-view = date:local=true author:width=0 commit-title:graph=v2,refs=true
+set vertical-split = false
