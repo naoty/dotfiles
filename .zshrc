@@ -24,10 +24,6 @@ eval "$(pyenv init -)"
 # direnv
 eval "$(direnv hook zsh)"
 
-# google cloud sdk
-source $HOME/google-cloud-sdk/path.zsh.inc
-source $HOME/google-cloud-sdk/completion.zsh.inc
-
 # zplug
 source $ZPLUG_HOME/init.zsh
 
