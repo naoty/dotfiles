@@ -1,2 +1,4 @@
 set main-view = date:display=relative-compact author:display=false commit-title:graph=v2,refs=true
 set vertical-split = false
+
+bind generic + !git commit --amend
