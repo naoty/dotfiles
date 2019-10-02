@@ -39,6 +39,9 @@ set noswapfile
 set visualbell t_vb=
 set clipboard+=unnamed
 
+" Filetype Plugin
+filetype plugin on
+
 " Colorscheme
 colorscheme desert
 
