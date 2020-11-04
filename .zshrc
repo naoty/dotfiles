@@ -1,7 +1,8 @@
 # メモリに確保する履歴の件数
 export HISTSIZE=1000
 
-export SAVEHIST=100
+# ファイルに保存される履歴の件数
+export SAVEHIST=10000
 
 # 履歴を共有する
 setopt share_history
