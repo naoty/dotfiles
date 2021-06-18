@@ -20,3 +20,16 @@ bindkey -e
 if [ -f "$HOME/.zshrc.local" ]; then
   source $HOME/.zshrc.local
 fi
+
+# ローカル補完スクリプト
+if [ -d "$HOME/.zsh/completions" ]; then
+  # 補完スクリプトをパスに追加する
+  fpath=($HOME/.zsh/completions $fpath)
+
+  # compinitをロードする
+  autoload -Uz compinit
+
+  # 補完を有効にする
+  compinit -i
+fi
+
