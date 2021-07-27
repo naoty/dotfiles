@@ -17,6 +17,13 @@ if [ -d "$HOME/.zsh/completions" ]; then
   fpath=("$HOME/.zsh/completions" $fpath)
 fi
 
+# ローカルキーバインディング
+if [ -d "$HOME/.zsh/keybinds" ]; then
+  for f in $(ls $HOME/.zsh/keybinds/*.zsh); do
+    source $f
+  done
+fi
+
 # 補完を有効にする
 autoload -U compinit && compinit
 
