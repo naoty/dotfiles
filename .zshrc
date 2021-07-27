@@ -1,6 +1,5 @@
-# プロンプトテーマを利用する
-autoload -U promptinit && promptinit
-prompt redhat
+# プロンプト
+PROMPT="%2/ %# "
 
 # 履歴を共有する
 setopt share_history
