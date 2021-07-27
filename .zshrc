@@ -12,6 +12,11 @@ if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
 
+# ローカル補完ファイル
+if [ -d "$HOME/.zsh/completions" ]; then
+  fpath=("$HOME/.zsh/completions" $fpath)
+fi
+
 # 補完を有効にする
 autoload -U compinit && compinit
 
