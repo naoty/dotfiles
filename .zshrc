@@ -1,3 +1,7 @@
+# プロンプトテーマを利用する
+autoload -U promptinit && promptinit
+prompt redhat
+
 # zsh-completions
 if [ -d "$(brew --prefix)/share/zsh-completions" ]; then
   fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
@@ -9,6 +13,5 @@ if [ -f "$HOME/.zshrc.local" ]; then
 fi
 
 # 補完を有効にする
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
 
