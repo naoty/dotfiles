@@ -1,13 +1,13 @@
 # vcs_infoを使ってプロンプトにGitの情報を表示する
 autoload -U vcs_info
-zstyle ':vcs_info:*' formats " (%b)"
-zstyle ':vcs_info:*' actionformats " (%b|%a)"
+zstyle ':vcs_info:*' formats "[%b]"
+zstyle ':vcs_info:*' actionformats "[%b|%a]"
 
 precmd() { vcs_info }
 
 # プロンプト
 setopt prompt_subst
-PROMPT='%1d${vcs_info_msg_0_} %# '
+PROMPT='%1d${vcs_info_msg_0_}%# '
 
 # 履歴を共有する
 setopt share_history
