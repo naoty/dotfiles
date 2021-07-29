@@ -15,6 +15,9 @@ setopt share_history
 # 重複する履歴を保存しない
 setopt hist_ignore_all_dups
 
+# emacsモードを有効にする
+bindkey -e
+
 # zsh-completions
 if [ -d "$(brew --prefix)/share/zsh-completions" ]; then
   fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
