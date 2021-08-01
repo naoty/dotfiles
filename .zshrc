@@ -23,6 +23,11 @@ if [ -d "$(brew --prefix)/share/zsh-completions" ]; then
   fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
 fi
 
+# zsh-autosuggestions
+if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+  source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
 # ローカル設定ファイル
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
