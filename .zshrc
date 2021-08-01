@@ -33,9 +33,9 @@ if [ -d "$HOME/.zsh/completions" ]; then
   fpath=("$HOME/.zsh/completions" $fpath)
 fi
 
-# ローカルキーバインディング
-if [ -d "$HOME/.zsh/keybinds" ]; then
-  for f in $(ls $HOME/.zsh/keybinds/*.zsh); do
+# .zsh以下をロードする
+if [ -d "$HOME/.zsh" ]; then
+  for f in $(ls $HOME/.zsh/**/*.zsh); do
     source $f
   done
 fi
