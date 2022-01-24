@@ -1,3 +1,18 @@
 *.local
 *.log
 
+# macOS
+.DS_Store
+
+# VSCode
+.vscode
+
+# IntelliJ IDEA
+.idea
+
+# dotenv
+.env
+
+# direnv
+.envrc
+
