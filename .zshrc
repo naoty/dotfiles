@@ -1,3 +1,6 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+
 # vcs_infoを使ってプロンプトにGitの情報を表示する
 autoload -U vcs_info
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
@@ -21,16 +24,6 @@ setopt hist_ignore_all_dups
 # emacsモードを有効にする
 bindkey -e
 
-# zsh-completions
-if [ -d "$(brew --prefix)/share/zsh-completions" ]; then
-  fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
-fi
-
-# zsh-autosuggestions
-if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-  source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
-
 # ローカル設定ファイル
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
@@ -48,6 +41,5 @@ if [ -d "$HOME/.zsh" ]; then
   done
 fi
 
-# 補完を有効にする
-autoload -U compinit && compinit
-
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
