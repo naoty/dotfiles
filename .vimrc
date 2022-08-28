@@ -42,9 +42,6 @@ set clipboard+=unnamed
 " Filetype Plugin
 filetype plugin on
 
-" Colorscheme
-colorscheme desert
-
 " Key mappings
 
 let mapleader = ' '
