@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # vcs_infoを使ってプロンプトにGitの情報を表示する
 autoload -U vcs_info
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
@@ -40,6 +37,3 @@ if [ -d "$HOME/.zsh" ]; then
     source $f
   done
 fi
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
