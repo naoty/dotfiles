@@ -4,9 +4,6 @@
 # macOS
 .DS_Store
 
-# VSCode
-.vscode
-
 # IntelliJ IDEA
 .idea
 
