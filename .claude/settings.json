@@ -2,14 +2,18 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
+      "Bash(ls *)",
       "Bash(cd *)",
       "Bash(grep *)",
+      "Bash(find *)",
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git worktree add *)",
       "Bash(gh pr create *)",
       "Bash(todo *)",
-      "Read(~/Todos/**)"
+      "Read(~/.claude/*)",
+      "Read(~/Todos/**)",
+      "Edit(~/Todos/**)"
     ],
     "deny": [
       "Read(./.env)"
