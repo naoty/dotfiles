@@ -16,7 +16,11 @@
       "Edit(~/Todos/**)"
     ],
     "deny": [
-      "Read(./.env)"
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(ssh *)",
+      "Read(**/.env*)",
+      "Read(~/.ssh/**)"
     ]
   }
 }
