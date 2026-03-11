@@ -6,6 +6,7 @@
       "Bash(cd *)",
       "Bash(grep *)",
       "Bash(find *)",
+      "Bash(git fetch *)",
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git worktree add *)",
@@ -14,6 +15,12 @@
       "Read(~/.claude/*)",
       "Read(~/Todos/**)",
       "Edit(~/Todos/**)"
+    ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git rm *)"
     ],
     "deny": [
       "Bash(curl *)",
