@@ -13,3 +13,6 @@
 # direnv
 .envrc
 
+
+**/.claude/settings.local.json
+**/.claude/worktrees/

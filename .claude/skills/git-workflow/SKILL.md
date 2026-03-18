@@ -1,58 +1,47 @@
 ---
 name: git-workflow
-description: コードの変更・コミット・PRを作成するときのGitワークフローガイドライン。コードに変更を加えるとき、コミットするとき、PRを作成するとき、ファイルを編集するときは常にこのスキルを参照すること。変更の粒度、コミット前のlint/テスト実行、コミットメッセージの形式を定める。
+description: コードの変更・コミット・PRを作成するときのGitワークフローガイドライン。変更の粒度、コミットメッセージの形式、PRの作成方法を定める。
 ---
 
 # Gitワークフローガイドライン
 
 ## ブランチの作成
 
-コードを変更する前に、必ずデフォルトブランチ（`main` または `master`）から新しいブランチを作成する。これにより、デフォルトブランチを常にクリーンな状態に保てる。
+コードを変更する前に、worktreeを作成して新しいブランチで作業する。ブランチ名はプロジェクトの命名規則に従うこと。不明な場合はユーザーに確認する。
 
 ```bash
-git checkout main
-git pull
-git checkout -b <branch-name>
+# デフォルトブランチを最新化する
+git fetch origin && git checkout <default-branch> && git pull
+
+# worktreeを作成する
+git worktree add .claude/worktrees/<branch-name> -b <branch-name>
 ```
-
-ブランチ名は変更の目的を端的に表すものにする。一般的な形式は `<type>/<description>` だ。
-
-- `feat/add-jwt-auth` — 機能追加
-- `fix/login-redirect-bug` — バグ修正
-- `refactor/user-model` — リファクタリング
-- `docs/api-reference` — ドキュメント
 
 ## コミット・PRの粒度
 
-コミットとPRは**一つの関心事に絞る**。これは変更を追跡しやすくし、レビューを容易にするためだ。
-
-- 1コミット = 1つの目的（機能追加、バグ修正、リファクタリングなど）
-- 複数の目的が混在する変更は分割してコミットする
-- PRも同様に、一つのテーマに絞る
-
-**悪い例：** ログイン機能の追加・CSSの修正・バグ修正を1コミットにまとめる
-**良い例：** それぞれ別々のコミットに分ける
-
-## コミット前のチェック
-
-コミットする前に、必ずlintとテストを実行する。これにより壊れた状態がコミット履歴に残らない。
-
-1. プロジェクトにlintスクリプトがあれば実行する（例: `npm run lint`、`make lint` など）
-2. プロジェクトにテストスクリプトがあれば実行する（例: `npm test`、`go test ./...` など）
-3. **いずれかが失敗したらコミットしない** — 問題を修正してから再度コミットすること
-
-スクリプトの存在確認は `package.json` の `scripts` フィールドや `Makefile`、`justfile` などを参照する。
+コミットとPRは**一つの関心事に絞る**。複数の目的が混在する変更は分割する。
 
 ## コミットメッセージ
 
-コミットメッセージには以下を含める：
-
 - **タイトル**: 変更の概要を日本語で40文字以内
-- **本文**: 空行を挟み、その変更をおこなった理由を記述する
+- **本文**: 空行を挟み、変更をおこなった理由を記述
+
+## Pull Requestの作成
+
+`.github/PULL_REQUEST_TEMPLATE.md` が存在する場合はそのテンプレートに沿って本文を作成する。PR本文末尾には必ず以下を追記する：
 
 ```
-ログイン機能にJWT認証を追加
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+```
 
-セッション管理をステートレスにするため、従来のセッションCookieから
-JWTトークンベースの認証に切り替えた。
+```bash
+gh pr create \
+  --base <base-branch> \
+  --title "タイトル" \
+  --body "$(cat <<'EOF'
+<!-- テンプレートの内容 -->
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+EOF
+)"
 ```
